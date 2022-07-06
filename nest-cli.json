@@ -1,0 +1,38 @@
+{
+  "monorepo": true,
+  "root": "apps/lerna-nest",
+  "sourceRoot": "apps/lerna-nest/src",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/lerna-nest/tsconfig.app.json"
+  },
+  "projects": {
+    "lerna-nest": {
+      "type": "application",
+      "root": "apps/lerna-nest",
+      "entryFile": "main",
+      "sourceRoot": "apps/lerna-nest/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/lerna-nest/tsconfig.app.json"
+      }
+    },
+    "app": {
+      "type": "application",
+      "root": "apps/app",
+      "entryFile": "main",
+      "sourceRoot": "apps/app/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/app/tsconfig.app.json"
+      }
+    },
+    "app1": {
+      "type": "application",
+      "root": "apps/app1",
+      "entryFile": "main",
+      "sourceRoot": "apps/app1/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/app1/tsconfig.app.json"
+      }
+    }
+  }
+}
