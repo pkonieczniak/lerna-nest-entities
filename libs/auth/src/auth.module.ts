@@ -1,16 +1,14 @@
-import { UserEntity } from '@libs/database';
 import { Module } from '@nestjs/common';
-import { DataSource } from 'typeorm';
 import { AuthService } from './auth.service';
+import { createUserRepository } from './repositories/UserRepository';
+
 
 @Module({
   providers: [
     AuthService,
     {
       provide: 'USER_REPOSITORY',
-      useFactory: (dataSource: DataSource) => {
-        return dataSource.getRepository(UserEntity)
-      },
+      useFactory: createUserRepository,
       inject: ['DATA_SOURCE'],
     }
   ],

@@ -1,12 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UserEntity } from '@libs/database'
-import { Repository } from 'typeorm';
+import { UserRepository } from './repositories/UserRepository';
 
 @Injectable()
 export class AuthService {
-  constructor(@Inject('USER_REPOSITORY') private userRepository: Repository<UserEntity>) {}
+  constructor(@Inject('USER_REPOSITORY') private userRepository: UserRepository) {}
 
   public getAuthenticatedUser(userId: number) {
-    return this.userRepository.findBy({ id: userId })
+    return this.userRepository.getAuthenticatedUser(userId)
   }
 }
